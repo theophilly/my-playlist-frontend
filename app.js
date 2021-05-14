@@ -48,10 +48,10 @@ track.onloadedmetadata = function () {
 let All_song = [
   {
     singer: '1',
-    name: 'jore',
-    label: 'AG',
+    name: 'Body Riddim',
+    label: 'Runtown',
     path: './assets/Runtown-ft.-Bella-Shmurda-x-Darkovibes-Body-Riddim.mp3',
-    img: './assets/jore.jfif',
+    img: './assets/jore.jpg',
     artist: 'AG',
   },
   {
@@ -69,6 +69,46 @@ let All_song = [
     path:
       './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
     img: './assets/sean.jfif',
+    artist: 'Sean Kingston',
+  },
+  {
+    singer: '4',
+    name: 'Divine ft davido',
+    label: 'Odunsi',
+    path: './assets/Odunsi-ft.-Davido-–-Divine-AudioTrimmer.com_.mp3',
+    img: './assets/divine.jpg',
+    artist: 'Sean Kingston',
+  },
+  {
+    singer: '5',
+    name: 'Throw Away',
+    label: 'Davido',
+    path: './assets/Throw-Way-ft-Wande-Coal-Shank-too.mp3',
+    img: './assets/davido.jpg',
+    artist: 'Sean Kingston',
+  },
+  {
+    singer: '6',
+    name: 'For You',
+    label: 'Teni',
+    path: './assets/Teni_ft_Davido_-_For_You_Froshnaija.com.mp3',
+    img: './assets/download.jfif',
+    artist: 'Sean Kingston',
+  },
+  {
+    singer: '7',
+    name: 'For You',
+    label: 'Teni',
+    path: './assets/Teni_ft_Davido_-_For_You_Froshnaija.com.mp3',
+    img: './assets/download.jfif',
+    artist: 'Sean Kingston',
+  },
+  {
+    singer: '8',
+    name: 'For You',
+    label: 'Teni',
+    path: './assets/Teni_ft_Davido_-_For_You_Froshnaija.com.mp3',
+    img: './assets/download.jfif',
     artist: 'Sean Kingston',
   },
 ];

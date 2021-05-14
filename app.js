@@ -79,38 +79,6 @@ let All_song = [
     img: './assets/divine.jpg',
     artist: 'Sean Kingston',
   },
-  {
-    singer: '5',
-    name: 'Throw Away',
-    label: 'Davido',
-    path: './assets/Throw-Way-ft-Wande-Coal-Shank-too.mp3',
-    img: './assets/davido.jpg',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '6',
-    name: 'For You',
-    label: 'Teni',
-    path: './assets/Teni_ft_Davido_-_For_You_Froshnaija.com.mp3',
-    img: './assets/download.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '7',
-    name: 'For You',
-    label: 'Teni',
-    path: './assets/Teni_ft_Davido_-_For_You_Froshnaija.com.mp3',
-    img: './assets/download.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '8',
-    name: 'For You',
-    label: 'Teni',
-    path: './assets/Teni_ft_Davido_-_For_You_Froshnaija.com.mp3',
-    img: './assets/download.jfif',
-    artist: 'Sean Kingston',
-  },
 ];
 
 // All functions

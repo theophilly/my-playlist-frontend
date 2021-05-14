@@ -11,92 +11,61 @@ let auto_play = document.querySelector('#auto');
 let present = document.querySelector('#present');
 let total = document.querySelector('#total');
 let artist = document.querySelector('#artist');
+let songLenght = document.querySelector('#songLenght');
+let songProgress = document.querySelector('#songProgress');
 
 let timer;
+let progress;
 let autoplay = 0;
 
 let index_no = 0;
 let Playing_song = false;
+function format(time) {
+  // Hours, minutes and seconds
+  var hrs = ~~(time / 3600);
+  var mins = ~~((time % 3600) / 60);
+  var secs = ~~time % 60;
+
+  // Output like "1:01" or "4:03:59" or "123:03:59"
+  var ret = '';
+  if (hrs > 0) {
+    ret += '' + hrs + ':' + (mins < 10 ? '0' : '');
+  }
+  ret += '' + mins + ':' + (secs < 10 ? '0' : '');
+  ret += '' + secs;
+  return ret;
+}
 
 //create a audio Element
 let track = document.createElement('audio');
+track.preload = 'metadata';
+track.onloadedmetadata = function () {
+  // console.log(format(track.duration));
+  songLenght.innerHTML = format(track.duration);
+};
 
 //All songs list
 let All_song = [
   {
     singer: '1',
-    name: 'Adekunle-Gold-ft-Kizz-Daniel-Jore',
-    label: 'Sony',
+    name: 'jore',
+    label: 'AG',
     path: './assets/Runtown-ft.-Bella-Shmurda-x-Darkovibes-Body-Riddim.mp3',
     img: './assets/jore.jfif',
-    artist: 'Adekunle Gold',
+    artist: 'AG',
   },
   {
     singer: '2',
-    name: 'MHD-feat-Wizkid-Bella',
-    label: 'Sony',
+    name: 'Bella ft wizkid',
+    label: 'MHD',
     path: './assets/MHD-feat-Wizkid-Bella.mp3',
     img: './assets/mhd.jfif',
     artist: 'MHD',
   },
   {
     singer: '3',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '4',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '5',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '6',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '7',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '8',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '9',
-    name: 'Peace_Of_Mind_ft_Davido_And_Tory_Lanez',
-    label: 'Sony',
+    name: 'peace of mind',
+    label: 'Sean',
     path:
       './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
     img: './assets/sean.jfif',
@@ -111,7 +80,7 @@ All_song.map((json, index) => {
   var root = document.querySelector('.contentareacontainer');
   var song = document.createElement('DIV');
   song.classList.add('d');
-  song.innerHTML = ` <div onclick="playtrackfromlist(${index})" class="musicdetails">  <span>${json.singer}</span>
+  song.innerHTML = ` <div onclick="load_track2(${index})" class="musicdetails">  <span>${json.singer}</span>
   <img src=${json.img}></img>
   <div class="musicdetailsinner">
     <p>${json.name}</p>
@@ -132,6 +101,7 @@ function playtrackfromlist(track) {
 // function load the track
 function load_track(index_no) {
   clearInterval(timer);
+  clearInterval(progress);
   reset_slider();
 
   track.src = All_song[index_no].path;
@@ -141,12 +111,15 @@ function load_track(index_no) {
   track.load();
 
   timer = setInterval(range_slider, 1000);
+  progress = setInterval(progressSlider, 1000);
   total.innerHTML = All_song.length;
   present.innerHTML = index_no + 1;
 }
 
 function load_track2(index_no) {
+  console.log(index_no);
   clearInterval(timer);
+  clearInterval(progress);
   reset_slider();
 
   track.src = All_song[index_no].path;
@@ -157,6 +130,7 @@ function load_track2(index_no) {
 
   playsong();
   timer = setInterval(range_slider, 1000);
+  progress = setInterval(progressSlider, 1000);
   total.innerHTML = All_song.length;
   present.innerHTML = index_no + 1;
 }
@@ -247,8 +221,13 @@ function autoplay_switch() {
   }
 }
 
+function progressSlider() {
+  songProgress.innerHTML = format(track.currentTime);
+}
+
 function range_slider() {
   let position = 0;
+  var exitLoop = false;
 
   // update slider position
   if (!isNaN(track.duration)) {
@@ -258,11 +237,23 @@ function range_slider() {
 
   // function will run when the song is over
   if (track.ended) {
-    play.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
-    if (autoplay == 1) {
-      index_no += 1;
-      load_track(index_no);
+    if (index_no === All_song.length - 1) {
+      console.log(index_no);
+      index_no = 0;
+      load_track2(index_no);
       playsong();
+      exitLoop = true;
+    }
+    play.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+    if (exitLoop === false) {
+      if (autoplay == 1) {
+        load_track2(index_no);
+        playsong();
+      } else {
+        index_no += 1;
+        load_track2(index_no);
+        playsong();
+      }
     }
   }
 }

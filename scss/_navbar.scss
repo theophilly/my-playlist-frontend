@@ -1,11 +1,12 @@
 nav {
   color: white;
-  height: 80px;
+  height: 70px;
   background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px calc((100vw - 1200px) / 2);
+  padding: 0px 1vw;
+
   position: sticky;
   left: 0;
   top: 0;

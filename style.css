@@ -100,6 +100,12 @@
   margin-right: 8px;
 }
 
+@media screen and (max-width: 650px) {
+  .contentarea button {
+    margin: 15px 0px 30px;
+  }
+}
+
 .contentarea .intro {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -112,8 +118,8 @@
 
 .contentarea #intro {
   color: white;
-  font-size: 2.5rem;
-  font-family: "Open Sans", sans-serif;
+  font-size: clamp(18px, 5vw, 40px);
+  font-family: 'Open Sans', sans-serif;
 }
 
 .contentarea #introsub {
@@ -122,12 +128,18 @@
   margin-top: 8px;
 }
 
+@media screen and (max-width: 650px) {
+  .contentarea #introsub {
+    font-size: 0.8rem;
+  }
+}
+
 .musicdetails {
   margin: 0px 0px 8px 0px;
   height: 50px;
   border-radius: 7px;
   max-width: 700px;
-  width: auto;
+  width: 700px;
   color: white;
   background: rgba(158, 155, 155, 0.1);
   display: -webkit-box;
@@ -174,6 +186,28 @@
   margin-right: 40px;
   color: #8a91a6;
   font-size: 0.9rem;
+}
+
+@media screen and (max-width: 734px) {
+  .musicdetails {
+    width: 100%;
+  }
+  .musicdetailsinner p {
+    font-size: 0.8rem;
+    margin-right: 4px;
+  }
+  .musicdetails img:nth-child(2) {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .musicdetails .label {
+    margin-right: 20px;
+    color: #8a91a6;
+    font-size: 0.8rem;
+  }
 }
 
 .musiccard {
@@ -434,7 +468,7 @@
 
 nav {
   color: white;
-  height: 80px;
+  height: 70px;
   background: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -445,7 +479,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0px calc((100vw - 1200px) / 2);
+  padding: 0px 1vw;
   position: -webkit-sticky;
   position: sticky;
   left: 0;

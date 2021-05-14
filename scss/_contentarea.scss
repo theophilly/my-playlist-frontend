@@ -31,6 +31,9 @@
     i {
       margin-right: 8px;
     }
+    @media screen and (max-width: 650px) {
+      margin: 15px 0px 30px;
+    }
   }
 
   .intro {
@@ -39,12 +42,16 @@
   }
   #intro {
     color: white;
-    font-size: 2.5rem;
-    font-family: "Open Sans", sans-serif;
+    font-size: clamp(18px, 5vw, 40px);
+    font-family: 'Open Sans', sans-serif;
   }
   #introsub {
     color: #cecece;
     font-size: 0.9rem;
     margin-top: 8px;
+
+    @media screen and (max-width: 650px) {
+      font-size: 0.8rem;
+    }
   }
 }

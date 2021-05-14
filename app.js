@@ -7,7 +7,7 @@ let volume_show = document.querySelector('#volume_show');
 let slider = document.querySelector('#duration_slider');
 let show_duration = document.querySelector('#show_duration');
 let track_image = document.querySelector('#track_image');
-let auto_play = document.querySelector('#auto');
+let auto_play = document.querySelector('#repeat');
 let present = document.querySelector('#present');
 let total = document.querySelector('#total');
 let artist = document.querySelector('#artist');
@@ -75,6 +75,14 @@ let All_song = [
 
 // All functions
 
+//set active class
+
+function setActive(index) {
+  if (index === index_no) return 'musicdetails';
+
+  if (index !== index_no) return 'musicdetails active';
+}
+
 //Tracks
 All_song.map((json, index) => {
   var root = document.querySelector('.contentareacontainer');
@@ -112,8 +120,6 @@ function load_track(index_no) {
 
   timer = setInterval(range_slider, 1000);
   progress = setInterval(progressSlider, 1000);
-  total.innerHTML = All_song.length;
-  present.innerHTML = index_no + 1;
 }
 
 function load_track2(index_no) {
@@ -131,11 +137,14 @@ function load_track2(index_no) {
   playsong();
   timer = setInterval(range_slider, 1000);
   progress = setInterval(progressSlider, 1000);
-  total.innerHTML = All_song.length;
-  present.innerHTML = index_no + 1;
 }
 
 load_track(index_no);
+
+//shuffle song
+function shuffleSong() {
+  load_track2(Math.floor(Math.random() * (All_song.length - 1)));
+}
 
 //mute sound function
 function mute_sound() {
@@ -212,12 +221,13 @@ function change_duration() {
 
 // autoplay function
 function autoplay_switch() {
+  console.log(autoplay);
   if (autoplay == 1) {
     autoplay = 0;
-    auto_play.style.background = 'rgba(255,255,255,0.2)';
+    auto_play.style.background = 'grey';
   } else {
     autoplay = 1;
-    auto_play.style.background = '#FF8A65';
+    auto_play.style.background = '#676767';
   }
 }
 

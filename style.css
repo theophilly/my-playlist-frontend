@@ -210,6 +210,10 @@
   }
 }
 
+.musicdetails.active {
+  background: rgba(158, 155, 155, 0.3);
+}
+
 .musiccard {
   width: 210px;
   height: 260px;

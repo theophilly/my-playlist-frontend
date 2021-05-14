@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./assets/icon.png" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;500&family=Open+Sans:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+  />
+    <title>My Music Playlist</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="wholewrapper">
+        <nav>
+          <div class="logo">
+            <i class="fab fa-battle-net"></i>
+            <span>Playlist</span>
+          </div>
+          <ul class="{hide}">
+            <li>
+              <a href="./assets/cv.pdf">Download CV</a>
+              <i class="fas fa-arrow-down"></i>
+            </li>
+            <li>My Profile <i class="fas fa-user"></i></li>
+          </ul>
+        </nav>
+        <div class="contentarea">
+          <div class="contentareacontainer">
+            <div class="intro">
+              <p id="intro">My Playlist</p>
+              <p id="introsub">I dont just code, I enjoy good music</p>
+            </div>
+
+            <button onclick="load_track2(0)"><i class="fas fa-play"></i>Play</button>
+
+            
+          </div>
+        </div>
+      </div>
+      <div class="musicplayer">
+        <div class="section1">
+          <img  id="track_image" src={pami}></img>
+          <div class="section1inner">
+            <p id="title">
+              Lil-Frosh-Omo-Ologo-ft.-Zinoleesky
+            </p>
+            <p id="artist"> Lil Frosh</p>
+          </div>
+        </div>
+        <div class="section2">
+          <div class="upper">
+            <p onclick="autoplay_switch()" id="random auto">
+              <i class="fas fa-random"></i>
+            </p>
+            <p
+              id="previous"
+              onclick="previous_song()"
+            >
+              <i class="fas fa-step-backward"></i>
+            </p>
+            <p onclick="justplay()" id="play">
+              <i class="fas fa-play"></i>
+            </p>
+            <p onclick="next_song()" id="next">
+              <i class="fas fa-step-forward"></i>
+            </p>
+            <p  id="repeat">
+              <i class="fas fa-redo"></i>
+            </p>
+          </div>
+          <div class="lower">
+            <span>0:19</span>
+            <input
+            onchange="change_duration()"
+            id="duration_slider"
+              type="range"
+              id="vol"
+              name="vol"
+              min="0"
+              max="100"
+            ></input>
+            <span>5:07</span>
+          </div>
+        </div>
+        <div class="section3">
+          <div class="section3inner">
+            <p id="speaker">
+              <i onclick="mute_sound()" class="fas fa-volume-up"></i>
+            </p>
+            <input
+            id="volume"
+            onchange="volume_change()"
+              type="range"
+              name="vol"
+              min="0"
+              max="100"
+              value="20"
+            ></input>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

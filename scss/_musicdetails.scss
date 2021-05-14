@@ -1,0 +1,40 @@
+.musicdetails {
+  margin: 0px 0px 8px 0px;
+  height: 50px;
+  border-radius: 7px;
+  max-width: 700px;
+  width: auto;
+  color: white;
+  background: rgba(158, 155, 155, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(158, 155, 155, 0.2);
+  }
+
+  &inner {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+
+    &2 {
+      display: flex;
+    }
+  }
+
+  & img:nth-child(2) {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 25px;
+  }
+  .label {
+    margin-right: 40px;
+    color: #8a91a6;
+    font-size: 0.9rem;
+  }
+}

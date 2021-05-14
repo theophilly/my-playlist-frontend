@@ -1,0 +1,50 @@
+.wholewrapper {
+  background: rgb(86, 83, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(86, 83, 136, 1) 0%,
+    rgba(9, 9, 121, 1) 34%,
+    rgba(4, 68, 82, 1) 100%
+  );
+}
+.contentarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: calc(100vh - 104px - 80px);
+  height: auto;
+
+  button {
+    padding: 7px 20px;
+    font-size: 1rem;
+    border: none;
+    background: #edbd55;
+    color: white;
+    width: 110px;
+    border-radius: 22px;
+    text-align: center;
+    margin: 35px 0;
+    cursor: pointer;
+
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+  }
+  #intro {
+    color: white;
+    font-size: 2.5rem;
+    font-family: "Open Sans", sans-serif;
+  }
+  #introsub {
+    color: #cecece;
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+}

@@ -44,42 +44,39 @@ track.onloadedmetadata = function () {
   songLenght.innerHTML = format(track.duration);
 };
 
+let All_song;
 //All songs list
-let All_song = [
-  {
-    singer: '1',
-    name: 'Body Riddim',
-    label: 'Runtown',
-    path: './assets/Runtown-ft.-Bella-Shmurda-x-Darkovibes-Body-Riddim.mp3',
-    img: './assets/jore.jpg',
-    artist: 'AG',
-  },
-  {
-    singer: '2',
-    name: 'Bella ft wizkid',
-    label: 'MHD',
-    path: './assets/MHD-feat-Wizkid-Bella.mp3',
-    img: './assets/mhd.jfif',
-    artist: 'MHD',
-  },
-  {
-    singer: '3',
-    name: 'peace of mind',
-    label: 'Sean',
-    path:
-      './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-    img: './assets/sean.jfif',
-    artist: 'Sean Kingston',
-  },
-  {
-    singer: '4',
-    name: 'Divine ft davido',
-    label: 'Odunsi',
-    path: './assets/Odunsi-ft.-Davido-–-Divine-AudioTrimmer.com_.mp3',
-    img: './assets/divine.jpg',
-    artist: 'Sean Kingston',
-  },
-];
+// let All_song = [
+//   {
+//     name: 'Body Riddim',
+
+//     path: './assets/Runtown-ft.-Bella-Shmurda-x-Darkovibes-Body-Riddim.mp3',
+//     img: './assets/jore.jpg',
+//     artist: 'Runtown',
+//   },
+//   {
+//     name: 'Bella ft wizkid',
+
+//     path: './assets/MHD-feat-Wizkid-Bella.mp3',
+//     img: './assets/mhd.jfif',
+//     artist: 'MHD',
+//   },
+//   {
+//     name: 'peace of mind',
+
+//     path:
+//       './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
+//     img: './assets/sean.jfif',
+//     artist: 'Sean',
+//   },
+//   {
+//     name: 'Divine ft davido',
+
+//     path: './assets/Odunsi-ft.-Davido-–-Divine-AudioTrimmer.com_.mp3',
+//     img: './assets/divine.jpg',
+//     artist: 'Odunsi',
+//   },
+// ];
 
 // All functions
 
@@ -92,22 +89,56 @@ function setActive(index) {
 }
 
 //Tracks
-All_song.map((json, index) => {
-  var root = document.querySelector('.contentareacontainer');
-  var song = document.createElement('DIV');
-  song.classList.add('d');
-  song.innerHTML = ` <div onclick="load_track2(${index})" class="musicdetails">  <span>${json.singer}</span>
-  <img src=${json.img}></img>
-  <div class="musicdetailsinner">
-    <p>${json.name}</p>
-    <div class="musicdetailsinner2">
-      <p class="label">${json.label}</p>
-      <p>3:20</p>
-    </div>
-  </div> </div>`;
+// All_song.map((json, index) => {
+//   var root = document.querySelector('.contentareacontainer');
+//   var song = document.createElement('DIV');
+//   song.classList.add('d');
+//   song.innerHTML = ` <div onclick="load_track2(${index})" class="musicdetails">  <span>${json.singer}</span>
+//   <img src=${json.img}></img>
+//   <div class="musicdetailsinner">
+//     <p>${json.name}</p>
+//     <div class="musicdetailsinner2">
+//       <p class="label">${json.artist}</p>
+//       <p>3:20</p>
+//     </div>
+//   </div> </div>`;
 
-  root.appendChild(song);
-});
+//   root.appendChild(song);
+// });
+const fetchData = async () => {
+  fetch('https://mymusicbackend.herokuapp.com/allmusic')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (songs) {
+      title.innerHTML = songs[0].name;
+      artist.innerHTML = songs[0].artist;
+      track_image.src = songs[0].img;
+      All_song = songs;
+      All_song.map((json, i) => {
+        console.log(i);
+        var root = document.querySelector('.contentareacontainer');
+        var song = document.createElement('DIV');
+        song.classList.add('d');
+        song.innerHTML = ` <div onclick="load_track2(${i})" class="musicdetails"> ${
+          i + 1
+        } <span></span>
+        <img src=${json.img}></img>
+        <div class="musicdetailsinner">
+          <p>${json.name}</p>
+          <div class="musicdetailsinner2">
+            <p class="label">${json.artist}</p>
+            <p>3:20</p>
+          </div>
+        </div> </div>`;
+
+        root.appendChild(song);
+      });
+    });
+};
+
+//This would load the data on start
+fetchData();
 
 // load track from list of tracks
 function playtrackfromlist(track) {

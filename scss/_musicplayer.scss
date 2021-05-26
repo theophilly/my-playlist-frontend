@@ -7,7 +7,9 @@
   position: sticky;
   left: 0;
   bottom: 0;
+
   overflow: hidden;
+  justify-self: flex-end;
 
   .section1 {
     display: flex;

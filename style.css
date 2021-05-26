@@ -60,6 +60,9 @@
 
 .wholewrapper {
   background: #565388;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background: -webkit-gradient(linear, left top, right top, from(#565388), color-stop(34%, #090979), to(#044452));
   background: linear-gradient(90deg, #565388 0%, #090979 34%, #044452 100%);
 }
@@ -204,7 +207,7 @@
     margin-right: 10px;
   }
   .musicdetails .label {
-    margin-right: 20px;
+    margin-right: 50px;
     color: #8a91a6;
     font-size: 0.8rem;
   }
@@ -253,6 +256,7 @@
   left: 0;
   bottom: 0;
   overflow: hidden;
+  justify-self: flex-end;
 }
 
 .musicplayer .section1 {
@@ -490,6 +494,24 @@ nav {
   top: 0;
 }
 
+nav input {
+  display: none;
+}
+
+nav #nav-icon {
+  display: none;
+}
+
+nav #nav-icon .menu-icon {
+  display: block;
+  height: 3px;
+  min-width: 25px;
+  margin: 3px;
+  background: white;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -532,6 +554,9 @@ nav ul li i {
   nav ul {
     display: none;
   }
+  nav #nav-icon {
+    display: block;
+  }
 }
 
 * {
@@ -539,9 +564,10 @@ nav ul li i {
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .app {
   max-height: 100vh;
+  min-height: 100vh;
 }

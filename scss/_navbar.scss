@@ -11,6 +11,21 @@ nav {
   left: 0;
   top: 0;
 
+  input {
+    display: none;
+  }
+
+  #nav-icon {
+    display: none;
+    .menu-icon {
+      display: block;
+      height: 3px;
+      min-width: 25px;
+      margin: 3px;
+      background: white;
+      transition: all 0.3s ease-in-out;
+    }
+  }
   .logo {
     display: flex;
     justify-content: center;
@@ -39,8 +54,15 @@ nav {
         margin-left: 3px;
       }
     }
-    @media screen and (max-width: 650px) {
+  }
+  @media screen and (max-width: 650px) {
+    ul {
       display: none;
+    }
+    #nav-icon {
+      display: block;
+      .menu-icon {
+      }
     }
   }
 }

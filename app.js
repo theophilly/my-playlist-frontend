@@ -14,6 +14,7 @@ let artist = document.querySelector('#artist');
 let songLenght = document.querySelector('#songLenght');
 let songProgress = document.querySelector('#songProgress');
 let recommend = document.querySelector('#recommend');
+let form_cancel = document.querySelector('#form_cancel');
 let modal_close = document.querySelector('.services_model-close');
 let services_model = document.querySelector('.services_model');
 
@@ -34,11 +35,13 @@ toggle.addEventListener('click', () => {
 });
 
 //modal
-modal_close.addEventListener('click', () => {
-  services_model.classList.remove('active-model');
-});
 recommend.addEventListener('click', () => {
   services_model.classList.add('active-model');
+});
+[modal_close, form_cancel].forEach((item) => {
+  item.addEventListener('click', () => {
+    services_model.classList.remove('active-model');
+  });
 });
 
 function format(time) {

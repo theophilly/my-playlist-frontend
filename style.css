@@ -538,6 +538,8 @@ nav ul {
   display: -ms-flexbox;
   display: flex;
   list-style-type: none;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 nav ul li {
@@ -556,6 +558,8 @@ nav ul li i {
 @media screen and (max-width: 650px) {
   nav ul {
     display: none;
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
   }
   nav #nav-icon {
     display: block;
@@ -578,6 +582,24 @@ nav ul li i {
             transform: translateY(-4px) rotate(-410deg);
     -webkit-transition: 0.55s 0.5s;
     transition: 0.55s 0.5s;
+  }
+  nav #menu:checked ~ ul {
+    display: block;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    -webkit-transition: 5s;
+    transition: 5s;
+    position: absolute;
+    min-height: 83vh;
+    background: -webkit-gradient(linear, left top, right top, from(#565388), color-stop(34%, #090979), to(#044452));
+    background: linear-gradient(90deg, #565388 0%, #090979 34%, #044452 100%);
+    left: 0;
+    top: 0;
+    z-index: 99;
+    padding: 10px 10px 10px 0;
+  }
+  nav #menu:checked ~ ul li {
+    padding: 10px 5px;
   }
 }
 

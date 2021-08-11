@@ -20,6 +20,16 @@ let autoplay = 0;
 
 let index_no = 0;
 let Playing_song = false;
+
+// hamburger
+const toggle = document.getElementById('nav-icon');
+
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  console.log('oks');
+  console.log(toggle);
+});
+
 function format(time) {
   // Hours, minutes and seconds
   var hrs = ~~(time / 3600);
@@ -40,43 +50,10 @@ function format(time) {
 let track = document.createElement('audio');
 track.preload = 'metadata';
 track.onloadedmetadata = function () {
-  // console.log(format(track.duration));
   songLenght.innerHTML = format(track.duration);
 };
 
 let All_song;
-//All songs list
-// let All_song = [
-//   {
-//     name: 'Body Riddim',
-
-//     path: './assets/Runtown-ft.-Bella-Shmurda-x-Darkovibes-Body-Riddim.mp3',
-//     img: './assets/jore.jpg',
-//     artist: 'Runtown',
-//   },
-//   {
-//     name: 'Bella ft wizkid',
-
-//     path: './assets/MHD-feat-Wizkid-Bella.mp3',
-//     img: './assets/mhd.jfif',
-//     artist: 'MHD',
-//   },
-//   {
-//     name: 'peace of mind',
-
-//     path:
-//       './assets/Sean_Kingston_Peace_Of_Mind_ft_Davido_And_Tory_Lanez_9jaflaver.com_.mp3',
-//     img: './assets/sean.jfif',
-//     artist: 'Sean',
-//   },
-//   {
-//     name: 'Divine ft davido',
-
-//     path: './assets/Odunsi-ft.-Davido-–-Divine-AudioTrimmer.com_.mp3',
-//     img: './assets/divine.jpg',
-//     artist: 'Odunsi',
-//   },
-// ];
 
 // All functions
 
@@ -88,23 +65,6 @@ function setActive(index) {
   if (index !== index_no) return 'musicdetails active';
 }
 
-//Tracks
-// All_song.map((json, index) => {
-//   var root = document.querySelector('.contentareacontainer');
-//   var song = document.createElement('DIV');
-//   song.classList.add('d');
-//   song.innerHTML = ` <div onclick="load_track2(${index})" class="musicdetails">  <span>${json.singer}</span>
-//   <img src=${json.img}></img>
-//   <div class="musicdetailsinner">
-//     <p>${json.name}</p>
-//     <div class="musicdetailsinner2">
-//       <p class="label">${json.artist}</p>
-//       <p>3:20</p>
-//     </div>
-//   </div> </div>`;
-
-//   root.appendChild(song);
-// });
 const fetchData = async () => {
   fetch('https://mymusicbackend.herokuapp.com/allmusic')
     .then(function (response) {

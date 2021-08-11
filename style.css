@@ -500,16 +500,19 @@ nav input {
 
 nav #nav-icon {
   display: none;
+  margin-right: 10px;
 }
 
 nav #nav-icon .menu-icon {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   display: block;
   height: 3px;
   min-width: 25px;
   margin: 3px;
   background: white;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.55s;
+  transition: all 0.55s;
 }
 
 nav .logo {
@@ -556,6 +559,25 @@ nav ul li i {
   }
   nav #nav-icon {
     display: block;
+  }
+  nav .active span:nth-child(2) {
+    opacity: 0;
+  }
+  nav .active span:nth-child(1) {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: translateY(8px) rotate(50deg);
+            transform: translateY(8px) rotate(50deg);
+    -webkit-transition: 0.55s 0.5s;
+    transition: 0.55s 0.5s;
+  }
+  nav .active span:nth-child(3) {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: translateY(-4px) rotate(-410deg);
+            transform: translateY(-4px) rotate(-410deg);
+    -webkit-transition: 0.55s 0.5s;
+    transition: 0.55s 0.5s;
   }
 }
 

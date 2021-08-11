@@ -13,6 +13,9 @@ let total = document.querySelector('#total');
 let artist = document.querySelector('#artist');
 let songLenght = document.querySelector('#songLenght');
 let songProgress = document.querySelector('#songProgress');
+let recommend = document.querySelector('#recommend');
+let modal_close = document.querySelector('.services_model-close');
+let services_model = document.querySelector('.services_model');
 
 let timer;
 let progress;
@@ -28,6 +31,14 @@ toggle.addEventListener('click', () => {
   toggle.classList.toggle('active');
   console.log('oks');
   console.log(toggle);
+});
+
+//modal
+modal_close.addEventListener('click', () => {
+  services_model.classList.remove('active-model');
+});
+recommend.addEventListener('click', () => {
+  services_model.classList.add('active-model');
 });
 
 function format(time) {
@@ -266,3 +277,5 @@ function range_slider() {
     }
   }
 }
+
+function handleModal() {}

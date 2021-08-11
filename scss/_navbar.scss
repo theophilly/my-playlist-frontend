@@ -136,3 +136,76 @@ nav {
 //   transform: rotate(-410deg);
 //   transition: 0.55s 0.5s;
 // }
+.services_model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.services_model-content {
+  position: relative;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+.services_model-services {
+  row-gap: 1rem;
+}
+.services_model-service {
+  display: flex;
+}
+.services_model-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+.services_model-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.3rem;
+  color: hsl(250, 69%, 61%);
+  cursor: pointer;
+}
+.recommend_form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 7px;
+  input {
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid #e2e8f0;
+  }
+  .recommend_buttons {
+    margin-top: 15px;
+    input[type='submit'] {
+      background: #3182ce;
+      color: white;
+      cursor: pointer;
+    }
+    button {
+      background: #edf2f7;
+      border: none;
+      color: #1a202c;
+      padding: 10px 15px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+  }
+}
+
+.active-model {
+  opacity: 1;
+  visibility: visible;
+}

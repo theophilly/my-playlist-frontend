@@ -15,8 +15,12 @@ let songLenght = document.querySelector('#songLenght');
 let songProgress = document.querySelector('#songProgress');
 let recommend = document.querySelector('#recommend');
 let form_cancel = document.querySelector('#form_cancel');
+let artist_name = document.querySelector('#artist_name');
+let track_name = document.querySelector('#track_name');
+let recommend_submit = document.querySelector('input[type="submit"]');
 let modal_close = document.querySelector('.services_model-close');
 let services_model = document.querySelector('.services_model');
+let toggle = document.getElementById('nav-icon');
 
 let timer;
 let progress;
@@ -25,13 +29,11 @@ let autoplay = 0;
 let index_no = 0;
 let Playing_song = false;
 
-// hamburger
-const toggle = document.getElementById('nav-icon');
+// All functions
 
+// hamburger
 toggle.addEventListener('click', () => {
   toggle.classList.toggle('active');
-  console.log('oks');
-  console.log(toggle);
 });
 
 //modal
@@ -44,6 +46,70 @@ recommend.addEventListener('click', () => {
   });
 });
 
+//recommend song form handling logic
+recommend_submit.addEventListener('click', () => {
+  if (artist_name.value == '') {
+    artist_name.classList.remove('success');
+    artist_name.classList.add('error');
+  } else {
+    artist_name.classList.add('success');
+  }
+  if (track_name.value == '') {
+    track_name.classList.remove('success');
+    track_name.classList.add('error');
+  } else {
+    track_name.classList.add('success');
+  }
+
+  if (track_name.value != '' && artist_name.value != '') {
+    let formdata = new FormData();
+    formdata.append('artist', artist_name.value);
+    formdata.append('track', track_name.value);
+
+    fetch('https://mymusicbackend.herokuapp.com/recommend', {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        artist: artist_name.value,
+        track: track_name.value,
+      }),
+    })
+      .then(function (data) {
+        clearInputs();
+        snackBar('thanks for the recommendation', 'success');
+        services_model.classList.remove('active-model');
+      })
+      .catch(function (error) {
+        console.log('Request failed', error);
+      });
+  }
+});
+
+function clearInputs() {
+  artist_name.value = '';
+  track_name.value = '';
+
+  artist_name.classList.remove('success');
+  track_name.classList.remove('success');
+}
+
+//snackbar
+function snackBar(message, type) {
+  var x = document.getElementById('snackbar');
+  x.innerText = message;
+  if (type === 'error') {
+    x.className = 'show error';
+  } else {
+    x.className = 'show success';
+  }
+  setTimeout(function () {
+    x.className = x.className.replace('show', '');
+  }, 3000);
+}
+
+//format time playing
 function format(time) {
   // Hours, minutes and seconds
   var hrs = ~~(time / 3600);
@@ -69,10 +135,7 @@ track.onloadedmetadata = function () {
 
 let All_song;
 
-// All functions
-
 //set active class
-
 function setActive(index) {
   if (index === index_no) return 'musicdetails';
 
@@ -90,7 +153,6 @@ const fetchData = async () => {
       track_image.src = songs[0].img;
       All_song = songs;
       All_song.map((json, i) => {
-        console.log(i);
         var root = document.querySelector('.contentareacontainer');
         var song = document.createElement('DIV');
         song.classList.add('d');
@@ -136,7 +198,6 @@ function load_track(index_no) {
 }
 
 function load_track2(index_no) {
-  console.log(index_no);
   clearInterval(timer);
   clearInterval(progress);
   reset_slider();
@@ -234,7 +295,6 @@ function change_duration() {
 
 // autoplay function
 function autoplay_switch() {
-  console.log(autoplay);
   if (autoplay == 1) {
     autoplay = 0;
     auto_play.style.background = 'grey';
@@ -261,7 +321,6 @@ function range_slider() {
   // function will run when the song is over
   if (track.ended) {
     if (index_no === All_song.length - 1) {
-      console.log(index_no);
       index_no = 0;
       load_track2(index_no);
       playsong();
@@ -280,5 +339,3 @@ function range_slider() {
     }
   }
 }
-
-function handleModal() {}

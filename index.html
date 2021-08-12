@@ -120,18 +120,17 @@
         </div>
       </div>
     </div>
-<!-- modal -->
     <div class="services_model">
       <div class="services_model-content">
         <h4 class="services_model-title">
-          Recommend me a<br />
-          song
+          Recommend a<br />
+          song for me
         </h4>
         <i class="fas fa-times services_model-close"></i>
      
        <div class="recommend_form">
-<input style="margin-bottom: 7px;" placeholder="artist" id="artist" type="text">
-<input placeholder="track name" id="track_name" type="text">
+<input autocomplete="off" placeholder="artist" id="artist_name" type="text">
+<input autocomplete="off" placeholder="track name" id="track_name" type="text">
 <div class="recommend_buttons">
   <input type="submit"></input>
   <button id="form_cancel">cancel</button>
@@ -139,6 +138,8 @@
 </div>
       </div>
     </div>
+    <!--==================== SNACK BAR ====================-->
+    <div id="snackbar">Some text some message..</div>
     <script src="./app.js"></script>
   </body>
 </html>

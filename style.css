@@ -537,9 +537,9 @@ nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: all 2s;
+  transition: all 2s;
   list-style-type: none;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
 }
 
 nav ul li {
@@ -557,9 +557,10 @@ nav ul li i {
 
 @media screen and (max-width: 650px) {
   nav ul {
+    -webkit-transition: all 2s;
+    transition: all 2s;
     display: none;
-    -webkit-transform: translateX(-50px);
-            transform: translateX(-50px);
+    width: 0px;
   }
   nav #nav-icon {
     display: block;
@@ -585,12 +586,11 @@ nav ul li i {
   }
   nav #menu:checked ~ ul {
     display: block;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-    -webkit-transition: 5s;
-    transition: 5s;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     position: absolute;
-    min-height: 83vh;
+    min-height: 87vh;
     background: -webkit-gradient(linear, left top, right top, from(#565388), color-stop(34%, #090979), to(#044452));
     background: linear-gradient(90deg, #565388 0%, #090979 34%, #044452 100%);
     left: 0;
@@ -609,7 +609,7 @@ nav ul li i {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -670,10 +670,22 @@ nav ul li i {
   width: 280px;
 }
 
+.recommend_form .error {
+  border: 2px solid red;
+}
+
+.recommend_form .success {
+  border: 2px solid green;
+}
+
 .recommend_form input {
   padding: 10px;
   border-radius: 7px;
   border: 2px solid #e2e8f0;
+}
+
+.recommend_form #artist_name {
+  margin-bottom: 7px;
 }
 
 .recommend_form .recommend_buttons {
@@ -715,4 +727,37 @@ nav ul li i {
 
 body {
   position: relative;
+  /* snackbar */
+}
+
+body #snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 60px;
+  font-size: 17px;
+}
+
+body #snackbar.show.error {
+  visibility: visible;
+  background: #cf000f;
+  color: aliceblue;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+body #snackbar.show.success {
+  visibility: visible;
+  background: #009944;
+  color: aliceblue;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }

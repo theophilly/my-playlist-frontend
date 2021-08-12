@@ -43,8 +43,8 @@ nav {
 
   ul {
     display: flex;
+    transition: all 2s;
     list-style-type: none;
-    transition: all 1s ease-in-out;
 
     li {
       margin-left: 18px;
@@ -61,8 +61,9 @@ nav {
   }
   @media screen and (max-width: 650px) {
     ul {
+      transition: all 2s;
       display: none;
-      transform: translateX(-50px);
+      width: 0px;
     }
     #nav-icon {
       display: block;
@@ -84,10 +85,9 @@ nav {
     }
     #menu:checked ~ ul {
       display: block;
-      transform: translateX(0px);
-      transition: 5s;
+      width: max-content;
       position: absolute;
-      min-height: 83vh;
+      min-height: 87vh;
       background: linear-gradient(
         90deg,
         rgba(86, 83, 136, 1) 0%,
@@ -106,53 +106,13 @@ nav {
   }
 }
 
-// .menu {
-//   cursor: pointer;
-//   margin: 0 auto;
-//   padding-left: 1.25em;
-//   position: relative;
-//   width: 40px;
-//   height: 40px;
-// }
-// .menu-global {
-//   backface-visibility: hidden;
-//   position: absolute;
-//   left: 0;
-//   border-top: 7px solid white;
-//   width: 100%;
-//   transition: 0.55s;
-// }
-// .menu-top {
-//   top: 0;
-// }
-// .menu-middle {
-//   top: 18px;
-// }
-// .menu-bottom {
-//   top: 36px;
-// }
-// .menu-top-click {
-//   backface-visibility: hidden;
-//   top: 15px;
-//   transform: rotate(50deg);
-//   transition: 0.55s 0.5s;
-// }
-// .menu-middle-click {
-//   opacity: 0;
-// }
-// .menu-bottom-click {
-//   backface-visibility: hidden;
-//   top: 15px;
-//   transform: rotate(-410deg);
-//   transition: 0.55s 0.5s;
-// }
 .services_model {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,11 +151,19 @@ nav {
   display: flex;
   flex-direction: column;
   width: 280px;
-
+  .error {
+    border: 2px solid red;
+  }
+  .success {
+    border: 2px solid green;
+  }
   input {
     padding: 10px;
     border-radius: 7px;
     border: 2px solid #e2e8f0;
+  }
+  #artist_name {
+    margin-bottom: 7px;
   }
   .recommend_buttons {
     margin-top: 15px;

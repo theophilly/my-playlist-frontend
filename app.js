@@ -21,6 +21,7 @@ let track_name = document.querySelector('#track_name');
 let recommend_submit = document.querySelector('input[type="submit"]');
 let modal_close = document.querySelector('.services_model-close');
 let services_model = document.querySelector('.services_model');
+let loading_animation = document.querySelector('.loading_animation');
 let toggle = document.getElementById('nav-icon');
 
 let timer;
@@ -155,6 +156,7 @@ const fetchData = async () => {
       return response.json();
     })
     .then(function (songs) {
+      loading_animation.classList.remove('active');
       title.innerHTML = songs[0].name;
       artist.innerHTML = songs[0].artist;
       track_image.src = songs[0].img;

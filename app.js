@@ -171,7 +171,7 @@ const fetchData = async () => {
           <p>${json.name}</p>
           <div class="musicdetailsinner2">
             <p class="label">${json.artist}</p>
-            <p>3:20</p>
+            <p>${json.song_lenght}</p>
           </div>
         </div> </div>`;
 

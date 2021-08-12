@@ -11,6 +11,7 @@ let auto_play = document.querySelector('#repeat');
 let present = document.querySelector('#present');
 let total = document.querySelector('#total');
 let artist = document.querySelector('#artist');
+let menu = document.querySelector('#menu');
 let songLenght = document.querySelector('#songLenght');
 let songProgress = document.querySelector('#songProgress');
 let recommend = document.querySelector('#recommend');
@@ -39,10 +40,16 @@ toggle.addEventListener('click', () => {
 //modal
 recommend.addEventListener('click', () => {
   services_model.classList.add('active-model');
+  toggle.classList.remove('active');
+  menu.checked = !menu.checked;
 });
 [modal_close, form_cancel].forEach((item) => {
   item.addEventListener('click', () => {
     services_model.classList.remove('active-model');
+    artist_name.classList.remove('error');
+    artist_name.classList.remove('success');
+    track_name.classList.remove('error');
+    track_name.classList.remove('success');
   });
 });
 

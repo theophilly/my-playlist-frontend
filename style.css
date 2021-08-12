@@ -746,6 +746,13 @@ body #snackbar {
   font-size: 17px;
 }
 
+@media screen and (max-width: 400px) {
+  body #snackbar {
+    left: 30px;
+    margin-left: 0px;
+  }
+}
+
 body #snackbar.show.error {
   visibility: visible;
   background: #cf000f;

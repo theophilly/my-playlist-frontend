@@ -35,6 +35,11 @@ body {
     left: 50%;
     bottom: 60px;
     font-size: 17px;
+
+    @media screen and (max-width: 400px) {
+      left: 30px;
+      margin-left: 0px;
+    }
   }
 
   #snackbar.show.error {

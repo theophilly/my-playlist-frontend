@@ -42,7 +42,10 @@ toggle.addEventListener('click', () => {
 recommend.addEventListener('click', () => {
   services_model.classList.add('active-model');
   toggle.classList.remove('active');
-  menu.checked = !menu.checked;
+
+  if (window.innerWidth <= 650) {
+    menu.checked = !menu.checked;
+  }
 });
 [modal_close, form_cancel].forEach((item) => {
   item.addEventListener('click', () => {

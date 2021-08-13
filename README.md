@@ -9,7 +9,7 @@ fetched from an Express server.
 - [Demo](#demo)
 - [Features](#features)
 - [Built Using](#built-using)
-- [Design Inspiration](#design-inspo)
+- [Backend](#backend)
 - [Feedback](#feedback)
 - [Author](#author)
 
@@ -38,9 +38,11 @@ fetched from an Express server.
 - Express
 - MongoDB
 
-## <a name="design-inspo"></a> Design Inspiration
+## <a name="backend"></a> Backend
 
-The user interface of this project was inspired by [Abhinav Bassi](https://www.behance.net/abhibassi).
+The `backend` contains a completed Node js application. You would need to set up your environment and some environment variables to run the application successfully.
+
+[Find the steps to set up the backend server locally in the backend's README](https://github.com/theophilly/music-player-backend).
 
 ## <a name="feedback"></a> Feedback
 
